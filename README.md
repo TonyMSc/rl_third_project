@@ -27,7 +27,7 @@ Step4:
 Clone my project repo
 
 ```bash
-git clone https://github.com/TonyMSc/rl_first_project.git
+git clone https://github.com/TonyMSc/rl_third_project.git
 ```
 
 Step4:
