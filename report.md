@@ -48,9 +48,9 @@ We are building on the DDPG algorithm
 
 To solve DDPG assume the $Q(s,a(s))$ is differentiable with respect to $a(s)$.  The policy will be represented by a neural network
 
-With DDPG optimize with two neural networks (one for the policy and one for the Q values), we select an action in a specific state and use a 2nd neural network to compute the Q value of that state and action.  We compute the value of the action selected by the policy, and move the parameters of the policy in the direction of the maximum value increase (ie. The gradient).  
+With DDPG optimize with two neural networks (one for the policy and one for the Q values), we select an action in a specific state and use a 2nd neural network to compute the Q value of that state and action.  We compute the value of the action selected by the policy and move the parameters of the policy in the direction of the maximum value increase (ie. The gradient).  
 
-The main change from DDPG to MADDPG is we now have cetralized training and decentralized execution.  The agents share experiencs in the experience replay buffer, but each agent only uses local observations at execution time.  During training actors choose actions, then information is then sent into the critic network to determine the Q values.  During testing the actors only uses local information, based on observation of the state space, and chooses the appropriate action based on policy that has been learned. 
+The main change from DDPG to MADDPG is we now have centralized training and decentralized execution.  The agents share experiences in the experience replay buffer, but each agent only uses local observations at execution time.  During training actors choose actions, then information is then sent into the critic network to determine the Q values.  During testing the actors only uses local information, based on observation of the state space, and chooses the appropriate action based on policy that has been learned. 
 
 ![](images/maddpg.png)
 ### Model Architectures
