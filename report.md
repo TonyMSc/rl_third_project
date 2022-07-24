@@ -24,28 +24,17 @@ An infinite number of hyperparameter combinations can be used in this problem.  
 
 Based on trial and error the following were used
 
-The following Hyperparameters are kept fixed for the first experiment that failed:
+The following Hyperparameters were used to train:
 BUFFER_SIZE = int(1e6)  # replay buffer size \
-BATCH_SIZE = 512 #128        # minibatch size \
-GAMMA = 0.925            # discount factor \
-TAU = 1e-3              # for soft update of target parameters \
-LR_ACTOR = 1e-4         # learning rate of the actor \
-LR_CRITIC = 1e-4        # learning rate of the critic, this was lowered from 3e-4 and learning improved \
+BATCH_SIZE = 512        # minibatch size \
+GAMMA = 0.99            # discount factor \
+TAU = 5e-2              # for soft update of target parameters  \
+LR_ACTOR = 1e-3         # learning rate of the actor \
+LR_CRITIC = 1e-3        # learning rate of the critic, this was lowered from 3e-4 and learning improved \
 WEIGHT_DECAY = 0.0000   # L2 weight decay, this was lowered from 0.0001 and lerning improved \
 n_episodes=2000		 maximum number of episodes \
-max_t=1000		 maximum number of timesteps per episode, this was increased from 700 
 
-The following Hyperparameters are kept fixed for the first experiment that failed:
-BUFFER_SIZE = int(1e6)  # replay buffer size \
-BATCH_SIZE = 512 #128        # minibatch size \
-GAMMA = 0.975            # discount factor \
-TAU = 1e-3              # for soft update of target parameters \
-LR_ACTOR = 1e-4         # learning rate of the actor \
-LR_CRITIC = 1e-3        # learning rate of the critic\
-WEIGHT_DECAY = 0.0000   # L2 weight decay, this was lowered from 0.0001 and lerning improved \
-n_episodes=2000		 maximum number of episodes \
-max_t=1000		 
-
+Changes in the learning rate and TAU caused the biggest change is how fast the problem was solved.  A higher TAU improved training.
 
 The following Algorithm was tested. 
 
