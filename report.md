@@ -52,6 +52,7 @@ We optimize with two neural networks (one for the policy and one for the Q value
 
 The main change from DDPG to MADDPG is we now have cetralized training and decentralized execution.  The agents share experiencs in the experience replay buffer, but each agent only uses local observations at execution time.  During training actors choose actions, then information is then sent into the critic network to determine the Q values.  During execution the actors only uses local information, based on observation of the state space, and chooses the appropriate action based on policy that has been learned. 
 
+![](images/maddpg.png)
 ### Model Architectures
 The neural network architecture is a simple feed forward neural network (one for the Actor and one for the Critic):  
 1. The inputs are the state size (for this problem it is a state space of 33)
