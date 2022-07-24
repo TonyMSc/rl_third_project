@@ -2,7 +2,7 @@
 This is the third project for the Deep Reinforcement Learning Nanodegree.  
 
 # Objective
-The objective of this project is to have two agents bounce a ball back and forth over a net.  If an agent hits theball over the net, it receives a reward of +0.1.  If the ball hits the ground or goes out of bounds, it receives a negative reward of -0.01.  We want to keep the ball in play for as long as possible.
+The objective of this project is to have two agents bounce a ball back and forth over a net.  If an agent hits the ball over the net, it receives a reward of +0.1.  If the ball hits the ground or goes out of bounds, it receives a negative reward of -0.01.  We want to keep the ball in play for as long as possible.
 
 ## Environment Details
 * State Space - consists of 8 variables corresponding to the position and velocity of the ball and racket. Each agent receives its own, local observation. 
