@@ -40,21 +40,17 @@ The following Algorithm was tested.
 
 # Learning Algorithm
  
-## DDPG
+## MADDPG
 ### Learning Algorithm
-We use DDPG to solve controlled tasks with continuous action spaces.  The number of valid actions is infinite, so it would be extremely difficult to find the highest Q value.  To solve DDPG assume the $Q(s,a(s))$ is differentiable with respect to $a(s)$.  The policy will be represented by a neural network
+We use Multi-Agent Deep Deterministic Policy Gradient (MADDPG) to solve controlled tasks with continuous action spaces.  The number of valid actions is infinite, so it would be extremely difficult to find the highest Q value.  
 
-We optimize with two neural networks (one for the policy and one for the Q values), we select an action in a specific state and use a 2nd neural network to compute the Q value of that state and action.  We compute the value of the action selected by the policy, and move the parameters of the policy in the direction of the maximum value increase (ie. The gradient).  Instead of an epsilon greedy, we add some gaussian noise to the policy. 
+We are building on the DDPG algorithm
 
-Steps
-1.	Initialize the neural network that will estimate the Q values given a state and an action (the critic network) $Q(s,a|\theta^{Q})$ and the neural network that will take the action (the actor) $\mu(s|\theta^{\mu})$
-2.	Initialize the target networks
-3.	Create a replay buffer
-4.	For a given episodes we take the observation of the environment and select and action from the policy and apply some random noise (instead of the greedy epsilon policy).  The action is taken in the environment and receive information about the reward and the next state, which is then stored in the replay buffer
-5.	We select a mini batch of samples from the replay buffer and update the neural networks by computing the targets and computing the mse of the loss function and updating the weights by stochastic gradient descent 
-6.	We update the policy by taking the action selected by the policy at each time step and computing the Q value of that state action pair using the Q Network to get an estimate of the performance
-7.	Then apply stochastic gradient ascent to move the policy in the direction of higher growth
-8.	The target networks are updated by using a certain percentage from the main network and a certain percentage from the target network.  We use Tau for that percentage split. 
+To solve DDPG assume the $Q(s,a(s))$ is differentiable with respect to $a(s)$.  The policy will be represented by a neural network
+
+We optimize with two neural networks (one for the policy and one for the Q values), we select an action in a specific state and use a 2nd neural network to compute the Q value of that state and action.  We compute the value of the action selected by the policy, and move the parameters of the policy in the direction of the maximum value increase (ie. The gradient).  
+
+The main change from DDPG to MADDPG is we now have cetralized training and decentralized execution.  The agents share experiencs in the experience replay buffer, but each agent only uses local observations at execution time.  During training actors choose actions, then information is then sent into the critic network to determine the Q values.  During execution the actors only uses local information, based on observation of the state space, and chooses the appropriate action based on policy that has been learned. 
 
 ### Model Architectures
 The neural network architecture is a simple feed forward neural network (one for the Actor and one for the Critic):  
