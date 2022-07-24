@@ -1,15 +1,14 @@
 # Background
-The objective of this project is to see if a double-jointed arm can move to target locations. A reward of +0.1 is provid6ed for each step that the agent's hand is in the goal location. We want the agent to maintain its position at the target location for as many time steps as possible.
+The objective of this project is to have two agents bounce a ball back and forth over a net.  If an agent hits the ball over the net, it receives a reward of +0.1.  If the ball hits the ground or goes out of bounds, it receives a negative reward of -0.01.  We want to keep the ball in play for as long as possible.
 
-We will be using the enviornment that has 20 identical arms
 
 
 ## Environment Details
 
-The state space consists of 33 variables corresponding to position, rotation, velocity, and angular velocities of the arm. The action space is a vector with four continuous numbers, corresponding to torque applicable to two joints. Every entry in the action vector should be a number between -1 and 1.
+* State Space - consists of 8 variables corresponding to the position and velocity of the ball and racket. Each agent receives its own, local observation. 
+* Action Space - Two continuous actions are available, corresponding to movement toward (or away from) the net, and jumping.
 
-Solved is defined as the agent is able to receive an average reward (over 100 episodes, and over all 20 agents) of at least +30.
-Training for this model is very long and slow.
+<br> When the agent must achieve an average score of +0.5 (over 100 consecutive episodes, after taking the maximum over both agents) the objective is met.
 
 ### Model Hyperparameters
 An infinite number of hyperparameter combinations can be used in this problem.  Including:
