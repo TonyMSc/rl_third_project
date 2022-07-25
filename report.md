@@ -69,7 +69,7 @@ Suprisingly No GPU was needed, but it did take a lot of episodes to reach the go
 
 This problem seemed very sensitive to changes in hyperparameters. Increasing TAU and adding batch normalization improved performance.  When first training the model, it was difficult to get a max reward above zero.  After changing some hyperparameters and experimenting with different combinations of layers and nodes, training improved.
 
-It did take several episodes to solve and the max reward did jump around a lot.  The learning rate made a big difference in how fast the model progressed.  If the learning rate was set too low, very little progress was made. 
+It did take several episodes (1700+) to solve and the max reward did jump around a lot.  The learning rate made a big difference in how fast the model progressed.  If the learning rate was set too low, very little progress was made. 
 ![](images/proj3exp1.png)
 
 
