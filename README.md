@@ -21,7 +21,7 @@ https://github.com/udacity/deep-reinforcement-learning.git
 
 Step3:
 After the virtual enviornment has been installed follow the instuctions for setting up the enviorment
-https://github.com/udacity/deep-reinforcement-learning/tree/master/p3_collab_compet
+https://github.com/udacity/deep-reinforcement-learning/tree/master/p3_collab-compet
 
 Step4:
 Clone my project repo
